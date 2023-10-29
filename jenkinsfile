@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    docker.build("jenkins_w_python:latest", "-f DockerfileDirectoryPath")
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                        def customImage = docker.image('jenkins_w_python:latest')
+                        customImage.push()
+                    }
+                }
+            }
+        }
+    }
+}
