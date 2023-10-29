@@ -19,13 +19,13 @@ pipeline {
 
         stage('Build Flask Docker Image') {
             steps {
-                sh 'docker build -t flask-app-service:latest .'
+                sh 'docker build -t runtimeterrorss1/ca4-flaskserver:latest .'
             }
         }
 
         stage('Tag Flask Docker Image') {
             steps {
-                sh "docker tag mysql-db-service:latest $DOCKERHUB_CRED/ca5-flask:latest"
+                sh "docker tag runtimeterrorss1/ca4-flaskserver:latest $DOCKERHUB_CRED/ca5-flask:latest"
             }
         }
 
