@@ -1,0 +1,9 @@
+i200550:
+Execute Jenkins pipeline using jenkinsfile and run the services mentioned in the
+docker compose file created in CA4
+i201826:
+Create and upload the docker image of the web service by using the jenkinsfile
+stored in your branch.
+i200634:
+Create and upload the docker image of the Database service by using the
+jenkinsfile stored in your branch.
