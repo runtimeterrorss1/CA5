@@ -1,0 +1,26 @@
+version: '3'
+services:
+  
+  web:
+    image: runtimeterrorss1/ca4-flaskserver
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./web-app:/app 
+    depends_on:
+      - db 
+      
+  db:
+    image: runtimeterrorss1/ca4
+    ports:
+      - "3307:3307"
+    environment:
+      MYSQL_ROOT_PASSWORD: lodesmain@21
+      MYSQL_DATABASE: mlopss
+      # MYSQL_USER: root
+      MYSQL_PASSWORD: lodesmain@21
+    volumes:
+      - mysql-data:/var/lib/mysql # Persist MySQL database data
+
+volumes:
+  mysql-data:
