@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        def customImage = docker.image('your-docker-image-name:tag')
+                        def customImage = docker.image('jenkins_w_python:latest')
                         customImage.push()
                     }
                 }
